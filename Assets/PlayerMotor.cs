@@ -21,7 +21,6 @@ public class PlayerMotor : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-
         HandleMaxSpeed();
         PlayerStopping();
 
