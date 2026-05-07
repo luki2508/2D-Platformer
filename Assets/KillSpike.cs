@@ -1,22 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillSpike : MonoBehaviour
 {
-    public float damage = 1;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string sceneName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
-      collision.GetComponent<PlayerHealth>().AddDamage(damage);
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

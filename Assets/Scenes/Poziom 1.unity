@@ -2217,6 +2217,8 @@ MonoBehaviour:
   jumpForce: 10
   maxspeed: 10
   stoppingforce: 5
+  multijump: 0
+  max_jumps: 2
 --- !u!114 &1048695803
 MonoBehaviour:
   m_ObjectHideFlags: 0
