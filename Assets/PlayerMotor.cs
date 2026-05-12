@@ -102,7 +102,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if(canDash)
         {
-            rigidbody2D.AddForce(Vector2.right * dashForce, ForceMode2D.Impulse);
+            rigidbody2D.AddForce(new Vector2(direction.x * dashForce, 0), ForceMode2D.Impulse);
             dashTime = dashDuration;
         }
 
