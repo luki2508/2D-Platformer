@@ -18,6 +18,10 @@ public class PlayerMotor : MonoBehaviour
     public float dashForce = 10;
     private float dashTime;
     public float dashDuration = 0.2f;
+    private Animator _animator;
+
+    private float initXScale;
+
 
 
   
@@ -25,7 +29,8 @@ public class PlayerMotor : MonoBehaviour
     private void Start()
     {
         rigidbody2D=GetComponent<Rigidbody2D>();
-
+        _animator = GetComponent<Animator>();
+        initXScale = transform.localScale.x;
     }
 
   
@@ -35,7 +40,23 @@ public class PlayerMotor : MonoBehaviour
         MovePlayer();
         HandleMaxSpeed();
         PlayerStopping();
+        if(direction.x != 0)
+        {
+            _animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            _animator.SetBool("IsMoving", false);
+        }
 
+        if (direction.x > 0)
+        {
+                transform.localScale = new Vector3(initXScale, transform.localScale.y, transform.localScale.z); 
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-initXScale, transform.localScale.y, transform.localScale.z);
+        }
 
     }
 
