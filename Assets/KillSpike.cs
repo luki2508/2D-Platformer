@@ -3,10 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class KillSpike : MonoBehaviour
 {
-    public string sceneName;
-
+    public float damage = 25;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        collision.GetComponent<PlayerHealth>().AddDamage(damage);
     }
 }
