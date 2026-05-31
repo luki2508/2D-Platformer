@@ -6,15 +6,14 @@ using UnityEngine.InputSystem;
 public class PlayerMotor : MonoBehaviour
 {
     Vector2 direction;
-    private bool canJump = true;
     private bool canDash = true;
     private Rigidbody2D rigidbody2D;
+    public int maxJumps = 2; 
+    private int jumpsRemaining;
     public float speed = 10;
     public float jumpForce = 10;
     public float maxspeed = 10;
     public float stoppingforce = 5;
-    public float multijump;
-    public float max_jumps = 2;
     public float dashForce = 10;
     private float dashTime;
     public float dashDuration = 0.2f;
@@ -31,6 +30,8 @@ public class PlayerMotor : MonoBehaviour
         rigidbody2D=GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         initXScale = transform.localScale.x;
+
+        jumpsRemaining = maxJumps;
     }
 
   
@@ -98,25 +99,28 @@ public class PlayerMotor : MonoBehaviour
 
     private void OnJump()
     {
-        if (canJump)
+        if (jumpsRemaining > 0)
         {
-            rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            if (multijump > 0)
-            {
-                multijump--;
-            }
-            else if (multijump == 0)
-            {
-                canJump = false;
-            }
-           
+            rigidbody2D.linearVelocity = new Vector2(
+                rigidbody2D.linearVelocity.x,
+                0
+            );
+
+            rigidbody2D.AddForce(
+                Vector2.up * jumpForce,
+                ForceMode2D.Impulse
+            );
+
+            jumpsRemaining--;
         }
     }
      private void OnCollisionEnter2D(Collision2D collision)
     {
-        canJump = true;
-        canDash = true;
-        multijump = max_jumps;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpsRemaining = maxJumps;
+            canDash = true;
+        }
     }
 
     private void OnDash()
