@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Poziom 5.unity
     guid: e5d0ce7d2ee1d8d48a3db9907e76303b
+  - enabled: 1
+    path: Assets/Scenes/Welcome.unity
+    guid: 8512fc4f493d70e48af15091b7bb6852
+  - enabled: 1
+    path: Assets/Scenes/Poziom 6.unity
+    guid: 2dec36775f91c4e4182821350aa17543
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

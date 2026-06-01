@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 897865705}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4528,12 +4528,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a21295c32259f740be109ea32a3c00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxJumps: 2
   speed: 19.94
   jumpForce: 10
   maxspeed: 10
   stoppingforce: 5
-  multijump: 0
-  max_jumps: 2
   dashForce: 10
   dashDuration: 0.2
 --- !u!114 &1048695803
@@ -6105,7 +6104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301906675896127048, guid: ddb21b649a32ff642ba0e0aa736eaeec, type: 3}
       propertyPath: sceneName
-      value: Level2
+      value: Poziom 2
       objectReference: {fileID: 0}
     - target: {fileID: 6931163313432619368, guid: ddb21b649a32ff642ba0e0aa736eaeec, type: 3}
       propertyPath: m_LocalPosition.x
